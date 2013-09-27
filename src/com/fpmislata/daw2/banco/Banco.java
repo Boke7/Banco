@@ -21,15 +21,11 @@ public class Banco {
         BigDecimal saldoTotal3 = new BigDecimal("2000");
         BigDecimal saldoTotal4 = new BigDecimal("1300");
 
-        Calendar fecha1 = new GregorianCalendar();
-        Calendar fecha2 = new GregorianCalendar();
-        Calendar fecha3 = new GregorianCalendar();
-        Calendar fecha4 = new GregorianCalendar();
+        Date fecha1 = (new GregorianCalendar(2009, 9, 2)).getTime();
+        Date fecha2 = (new GregorianCalendar(2010, 10, 25)).getTime();
+        Date fecha3 = (new GregorianCalendar(2011, 1, 6)).getTime();
+        Date fecha4 = (new GregorianCalendar(2012, 5, 17)).getTime();
 
-        fecha1.set(2009, 9, 2);
-        fecha2.set(2010, 10, 25);
-        fecha3.set(2011, 1, 6);
-        fecha4.set(2012, 5, 17);
 
         EntidadBancaria entidad1 = new EntidadBancaria(1, "005", "Banco Santander", "53758419J", TipoEntidadBancaria.BANCO);
         EntidadBancaria entidad2 = new EntidadBancaria(2, "012", "Caja Rural Torrent", "53535353J", TipoEntidadBancaria.CAJA_AHORRO);
@@ -71,7 +67,7 @@ public class Banco {
         String codigoCuentaBancaria = cuentaBancaria.getNumeroCuenta();
         System.out.println(codigoEntidadBancaria+" "+codigoSucursalBancaria+" "+cuentaBancaria.getDc()+" "+codigoCuentaBancaria);
         for(MovimientoBancario movimientoBancario:cuentaBancaria.getMovimientosBancarios()){ 
-            System.out.println(movimientoBancario.getIdMovimientoBancario()+" "+movimientoBancario.getTipoMovimientoBancario()+" "+movimientoBancario.getImporte()+" "+movimientoBancario.getSaldoTotal()+" "+movimientoBancario.getConcepto());   
+            System.out.println(movimientoBancario.getIdMovimientoBancario()+" "+movimientoBancario.getTipoMovimientoBancario()+" "+movimientoBancario.getImporte()+" "+movimientoBancario.getFecha()+" "+movimientoBancario.getSaldoTotal()+" "+movimientoBancario.getConcepto());   
         }
     }
 }

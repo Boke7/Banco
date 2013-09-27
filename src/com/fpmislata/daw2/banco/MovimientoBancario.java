@@ -9,12 +9,12 @@ public class MovimientoBancario {
     private int idMovimientoBancario;
     private TipoMovimientoBancario tipoMovimientoBancario;
     private BigDecimal importe;
-    private Calendar fecha;
+    private Date fecha;
     private BigDecimal saldoTotal;
     private String concepto;
     private CuentaBancaria cuentaBancaria;
 
-    public MovimientoBancario(int idMovimientoBancario, TipoMovimientoBancario tipoMovimientoBancario, BigDecimal importe, Calendar fecha, BigDecimal saldoTotal, String concepto,CuentaBancaria cuentaBancaria) {
+    public MovimientoBancario(int idMovimientoBancario, TipoMovimientoBancario tipoMovimientoBancario, BigDecimal importe, Date fecha, BigDecimal saldoTotal, String concepto,CuentaBancaria cuentaBancaria) {
         this.idMovimientoBancario = idMovimientoBancario;
         this.tipoMovimientoBancario = tipoMovimientoBancario;
         this.importe = importe;
@@ -48,11 +48,11 @@ public class MovimientoBancario {
         this.importe = importe;
     }
 
-    public Calendar getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(Calendar fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
