@@ -1,6 +1,7 @@
 package com.fpmislata.daw2.banco;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 
 public class MovimientoBancario {
@@ -8,17 +9,19 @@ public class MovimientoBancario {
     private int idMovimientoBancario;
     private TipoMovimientoBancario tipoMovimientoBancario;
     private BigDecimal importe;
-    private Date fecha;
+    private Calendar fecha;
     private BigDecimal saldoTotal;
     private String concepto;
+    private CuentaBancaria cuentaBancaria;
 
-    public MovimientoBancario(int idMovimientoBancario, TipoMovimientoBancario tipoMovimientoBancario, BigDecimal importe, Date fecha, BigDecimal saldoTotal, String concepto) {
+    public MovimientoBancario(int idMovimientoBancario, TipoMovimientoBancario tipoMovimientoBancario, BigDecimal importe, Calendar fecha, BigDecimal saldoTotal, String concepto,CuentaBancaria cuentaBancaria) {
         this.idMovimientoBancario = idMovimientoBancario;
         this.tipoMovimientoBancario = tipoMovimientoBancario;
         this.importe = importe;
         this.fecha = fecha;
         this.saldoTotal = saldoTotal;
         this.concepto = concepto;
+        this.cuentaBancaria = cuentaBancaria;
     }
 
     public int getIdMovimientoBancario() {
@@ -45,11 +48,11 @@ public class MovimientoBancario {
         this.importe = importe;
     }
 
-    public Date getFecha() {
+    public Calendar getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(Calendar fecha) {
         this.fecha = fecha;
     }
 
@@ -67,5 +70,13 @@ public class MovimientoBancario {
 
     public void setConcepto(String concepto) {
         this.concepto = concepto;
+    }
+
+    public CuentaBancaria getCuentaBancaria() {
+        return cuentaBancaria;
+    }
+
+    public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
+        this.cuentaBancaria = cuentaBancaria;
     }
 }
