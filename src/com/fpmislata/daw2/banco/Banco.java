@@ -1,6 +1,11 @@
 package com.fpmislata.daw2.banco;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -8,9 +13,11 @@ import java.util.List;
 
 public class Banco {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        
+        EntidadBancariaDAO eDAO = new EntidadBancariaDAO();
 
-        BigDecimal saldo1 = new BigDecimal("512.25");
+        /*BigDecimal saldo1 = new BigDecimal("512.25");
         BigDecimal saldo2 = new BigDecimal("1502.35");
         BigDecimal importe1 = new BigDecimal("40");
         BigDecimal importe2 = new BigDecimal("100");
@@ -27,8 +34,8 @@ public class Banco {
         Date fecha4 = (new GregorianCalendar(2012, 5, 17)).getTime();
 
 
-        EntidadBancaria entidad1 = new EntidadBancaria(1, "005", "Banco Santander", "53758419J", TipoEntidadBancaria.BANCO);
-        EntidadBancaria entidad2 = new EntidadBancaria(2, "012", "Caja Rural Torrent", "53535353J", TipoEntidadBancaria.CAJA_AHORRO);
+        */EntidadBancaria entidad1 = new EntidadBancaria(5, "005", "Banco Santander", "53758419J", TipoEntidadBancaria.BANCO);
+        /*EntidadBancaria entidad2 = new EntidadBancaria(2, "012", "Caja Rural Torrent", "53535353J", TipoEntidadBancaria.CAJA_AHORRO);
 
         SucursalBancaria sucursal1 = new SucursalBancaria(1, entidad1, "125", "Sucursal de Valencia");
         SucursalBancaria sucursal2 = new SucursalBancaria(2, entidad1, "078", "Sucursal de Torrent");
@@ -68,6 +75,11 @@ public class Banco {
         System.out.println(codigoEntidadBancaria+" "+codigoSucursalBancaria+" "+cuentaBancaria.getDc()+" "+codigoCuentaBancaria);
         for(MovimientoBancario movimientoBancario:cuentaBancaria.getMovimientosBancarios()){ 
             System.out.println(movimientoBancario.getIdMovimientoBancario()+" "+movimientoBancario.getTipoMovimientoBancario()+" "+movimientoBancario.getImporte()+" "+movimientoBancario.getFecha()+" "+movimientoBancario.getSaldoTotal()+" "+movimientoBancario.getConcepto());   
-        }
+        }*/
+        
+        eDAO.read(3);
+        
+        eDAO.insertEntidadBancaria(entidad1);
+        
     }
 }

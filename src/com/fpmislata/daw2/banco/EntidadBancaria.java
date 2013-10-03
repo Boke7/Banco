@@ -19,6 +19,10 @@ public class EntidadBancaria {
         this.cif = cif;
         this.tipoEntidadBancaria = tipoEntidadBancaria;
     }
+    
+    public EntidadBancaria(){
+        
+    }
 
     public List<SucursalBancaria> getSucursales() {
         return sucursales;
