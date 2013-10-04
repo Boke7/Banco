@@ -34,7 +34,7 @@ public class Banco {
         Date fecha4 = (new GregorianCalendar(2012, 5, 17)).getTime();
 
 
-        */EntidadBancaria entidad1 = new EntidadBancaria(5, "005", "Banco Santander", "53758419J", TipoEntidadBancaria.BANCO);
+        */EntidadBancaria entidad1 = new EntidadBancaria(5, "005", "Banco Santander 2", "53758419J", TipoEntidadBancaria.BANCO);
         /*EntidadBancaria entidad2 = new EntidadBancaria(2, "012", "Caja Rural Torrent", "53535353J", TipoEntidadBancaria.CAJA_AHORRO);
 
         SucursalBancaria sucursal1 = new SucursalBancaria(1, entidad1, "125", "Sucursal de Valencia");
@@ -77,9 +77,22 @@ public class Banco {
             System.out.println(movimientoBancario.getIdMovimientoBancario()+" "+movimientoBancario.getTipoMovimientoBancario()+" "+movimientoBancario.getImporte()+" "+movimientoBancario.getFecha()+" "+movimientoBancario.getSaldoTotal()+" "+movimientoBancario.getConcepto());   
         }*/
         
-        eDAO.read(3);
+        /*eDAO.read(3);
         
-        eDAO.insertEntidadBancaria(entidad1);
+        eDAO.insert(entidad1);*/
+        
+        /*eDAO.update(entidad1);*/
+        
+        /*eDAO.delete(5);*/
+        
+        /*eDAO.read(5);*/
+        
+        for(EntidadBancaria entidadBancaria:eDAO.findByCodigo("005")){
+            
+            System.out.println(entidadBancaria.getIdEntidadBancaria() + " " + entidadBancaria.getCodigoEntidad() + " " + entidadBancaria.getNombre() + " " + entidadBancaria.getCif() + " " + entidadBancaria.getTipoEntidadBancaria());
+            
+        }
+       
         
     }
 }
