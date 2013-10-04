@@ -1,12 +1,12 @@
 
-package com.fpmislata.daw2.banco;
+package com.fpmislata.daw2.banco.datos;
 
 import java.sql.Connection;
 
 
 public interface ConnectionFactory {
     
-    public Connection conectar();
+    public Connection getConnection();
     
     public void desconectar();
     

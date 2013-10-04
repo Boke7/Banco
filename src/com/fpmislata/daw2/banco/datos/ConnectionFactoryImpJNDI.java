@@ -1,5 +1,5 @@
 
-package com.fpmislata.daw2.banco;
+package com.fpmislata.daw2.banco.datos;
 
 
 public class ConnectionFactoryImpJNDI  {

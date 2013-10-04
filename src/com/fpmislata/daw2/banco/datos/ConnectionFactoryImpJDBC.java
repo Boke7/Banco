@@ -1,5 +1,5 @@
 
-package com.fpmislata.daw2.banco;
+package com.fpmislata.daw2.banco.datos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class ConnectionFactoryImpJDBC implements ConnectionFactory {
 
     @Override
-    public Connection conectar() {
+    public Connection getConnection() {
         
         Connection connection = null;
         

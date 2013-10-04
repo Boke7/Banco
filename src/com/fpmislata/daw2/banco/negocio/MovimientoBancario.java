@@ -1,4 +1,4 @@
-package com.fpmislata.daw2.banco;
+package com.fpmislata.daw2.banco.negocio;
 
 import java.math.BigDecimal;
 import java.util.Calendar;

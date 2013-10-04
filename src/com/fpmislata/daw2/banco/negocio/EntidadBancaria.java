@@ -1,4 +1,4 @@
-package com.fpmislata.daw2.banco;
+package com.fpmislata.daw2.banco.negocio;
 
 import java.util.ArrayList;
 import java.util.List;

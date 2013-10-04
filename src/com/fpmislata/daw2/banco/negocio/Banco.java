@@ -1,5 +1,6 @@
-package com.fpmislata.daw2.banco;
+package com.fpmislata.daw2.banco.negocio;
 
+import com.fpmislata.daw2.banco.datos.EntidadBancariaDAO;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -77,15 +78,16 @@ public class Banco {
             System.out.println(movimientoBancario.getIdMovimientoBancario()+" "+movimientoBancario.getTipoMovimientoBancario()+" "+movimientoBancario.getImporte()+" "+movimientoBancario.getFecha()+" "+movimientoBancario.getSaldoTotal()+" "+movimientoBancario.getConcepto());   
         }*/
         
-        /*eDAO.read(3);
         
-        eDAO.insert(entidad1);*/
+        /*eDAO.insert(entidad1);*/
         
         /*eDAO.update(entidad1);*/
         
         /*eDAO.delete(5);*/
         
         /*eDAO.read(5);*/
+        
+        System.out.println(eDAO.read(5).getIdEntidadBancaria()+" "+eDAO.read(5).getCodigoEntidad()+" "+eDAO.read(5).getCif()+" "+eDAO.read(5).getNombre()+" "+eDAO.read(5).getTipoEntidadBancaria());
         
         for(EntidadBancaria entidadBancaria:eDAO.findByCodigo("005")){
             
