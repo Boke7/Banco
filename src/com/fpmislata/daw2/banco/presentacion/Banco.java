@@ -1,6 +1,8 @@
-package com.fpmislata.daw2.banco.negocio;
+package com.fpmislata.daw2.banco.presentacion;
 
 import com.fpmislata.daw2.banco.datos.EntidadBancariaDAO;
+import com.fpmislata.daw2.banco.negocio.EntidadBancaria;
+import com.fpmislata.daw2.banco.negocio.TipoEntidadBancaria;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;

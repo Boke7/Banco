@@ -8,6 +8,5 @@ public interface ConnectionFactory {
     
     public Connection getConnection();
     
-    public void desconectar();
     
 }

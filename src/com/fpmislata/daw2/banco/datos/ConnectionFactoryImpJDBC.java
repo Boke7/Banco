@@ -38,9 +38,4 @@ public class ConnectionFactoryImpJDBC implements ConnectionFactory {
         return connection;
     }
 
-    @Override
-    public void desconectar() {
-        
-    }
-    
 }

@@ -15,14 +15,14 @@ import java.util.List;
 public class EntidadBancariaDAO {
 
     ConnectionFactory connectionFactory = new ConnectionFactoryImpJDBC();
-
+    Connection connection = connectionFactory.getConnection();
 
     public EntidadBancaria read(int idEntidadBancaria) throws SQLException {
 
         EntidadBancaria entidadBancaria;
 
         String selectSQL = "SELECT * FROM entidadBancaria WHERE idEntidad = ?";
-        PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement(selectSQL);
+        PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
         preparedStatement.setInt(1, idEntidadBancaria);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next() == true) {
@@ -42,7 +42,7 @@ public class EntidadBancariaDAO {
             entidadBancaria = null;
         }
 
-        connectionFactory.desconectar();
+        connection.close();
         return entidadBancaria;
 
     }
@@ -50,7 +50,7 @@ public class EntidadBancariaDAO {
     public void insert(EntidadBancaria entidadBancaria) throws SQLException {
         String insertTableSQL = "INSERT INTO entidadbancaria (idEntidad, codigoEntidad, nombre, cif,tipoEntidadBancaria) VALUES (?,?,?,?,?)";
 
-        PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement(insertTableSQL);
+        PreparedStatement preparedStatement = connection.prepareStatement(insertTableSQL);
 
         preparedStatement.setInt(1, entidadBancaria.getIdEntidadBancaria());
         preparedStatement.setString(2, entidadBancaria.getCodigoEntidad());
@@ -59,14 +59,14 @@ public class EntidadBancariaDAO {
         preparedStatement.setString(5, entidadBancaria.getTipoEntidadBancaria().name());
 
         preparedStatement.executeUpdate();
-        connectionFactory.desconectar();
+        connection.close();
     }
 
     public void update(EntidadBancaria entidadBancaria) throws SQLException {
 
         String updateSQL = "UPDATE entidadbancaria SET codigoEntidad=?,nombre=?,cif=?,tipoEntidadBancaria=? WHERE idEntidad=?";
 
-        PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement(updateSQL);
+        PreparedStatement preparedStatement = connection.prepareStatement(updateSQL);
 
         preparedStatement.setString(1, entidadBancaria.getCodigoEntidad());
         preparedStatement.setString(2, entidadBancaria.getNombre());
@@ -74,19 +74,19 @@ public class EntidadBancariaDAO {
         preparedStatement.setString(4, entidadBancaria.getTipoEntidadBancaria().name());
 
         preparedStatement.executeUpdate();
-        connectionFactory.desconectar();
+        connection.close();
     }
 
     public void delete(int idEntidadBancaria) throws SQLException {
         
         String deleteSQL = "DELETE FROM entidadbancaria WHERE idEntidad=?";
         
-        PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement(deleteSQL);
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL);
         
         preparedStatement.setInt(1, idEntidadBancaria);
         
         preparedStatement.executeUpdate();
-        connectionFactory.desconectar();
+        connection.close();
         
     }
 
@@ -96,7 +96,7 @@ public class EntidadBancariaDAO {
         List<EntidadBancaria> entidadesBancarias = new ArrayList<>();
         String selectAllSQL = "SELECT * FROM entidadbancaria";
         
-        PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement(selectAllSQL);
+        PreparedStatement preparedStatement = connection.prepareStatement(selectAllSQL);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next() == true) {
             
@@ -111,7 +111,7 @@ public class EntidadBancariaDAO {
             entidadesBancarias.add(entidadBancaria);
         }
         
-        connectionFactory.desconectar();
+        connection.close();
         return entidadesBancarias;
 
     }
@@ -122,7 +122,7 @@ public class EntidadBancariaDAO {
         String selectAllSQL = "SELECT * FROM entidadbancaria WHERE codigoEntidad=?";
         
         
-        PreparedStatement preparedStatement = connectionFactory.getConnection().prepareStatement(selectAllSQL);
+        PreparedStatement preparedStatement = connection.prepareStatement(selectAllSQL);
         
         preparedStatement.setString(1,codigo);
         
@@ -140,7 +140,7 @@ public class EntidadBancariaDAO {
             entidadesBancarias.add(entidadBancaria);
         }
         
-        connectionFactory.desconectar();
+        connection.close();
         return entidadesBancarias;
     }
 }
