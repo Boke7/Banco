@@ -92,6 +92,12 @@ public class Banco {
             System.out.println(entidadBancaria.getIdEntidadBancaria() + " " + entidadBancaria.getCodigoEntidad() + " " + entidadBancaria.getNombre() + " " + entidadBancaria.getCif() + " " + entidadBancaria.getTipoEntidadBancaria());
             
         }
+        
+        for(EntidadBancaria entidadBancaria:eDAO.findAll()){
+            
+            System.out.println(entidadBancaria.getIdEntidadBancaria() + " " + entidadBancaria.getCodigoEntidad() + " " + entidadBancaria.getNombre() + " " + entidadBancaria.getCif() + " " + entidadBancaria.getTipoEntidadBancaria());
+            
+        }
        
         
     }
