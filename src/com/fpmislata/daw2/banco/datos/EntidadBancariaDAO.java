@@ -1,4 +1,3 @@
-
 package com.fpmislata.daw2.banco.datos;
 
 import com.fpmislata.daw2.banco.negocio.EntidadBancaria;
@@ -11,13 +10,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class EntidadBancariaDAO {
 
     ConnectionFactory connectionFactory = new ConnectionFactoryImpJDBC();
-    Connection connection = connectionFactory.getConnection();
 
     public EntidadBancaria read(int idEntidadBancaria) throws SQLException {
+
+        Connection connection = connectionFactory.getConnection();
 
         EntidadBancaria entidadBancaria;
 
@@ -26,19 +25,19 @@ public class EntidadBancariaDAO {
         preparedStatement.setInt(1, idEntidadBancaria);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next() == true) {
-            
+
             entidadBancaria = new EntidadBancaria();
-            
+
             entidadBancaria.setIdEntidadBancaria(resultSet.getInt("idEntidad"));
             entidadBancaria.setCodigoEntidad(resultSet.getString("codigoEntidad"));
             entidadBancaria.setNombre(resultSet.getString("nombre"));
             entidadBancaria.setCif(resultSet.getString("cif"));
             entidadBancaria.setTipoEntidadBancaria(TipoEntidadBancaria.valueOf(resultSet.getString("tipoEntidadBancaria")));
-            
+
             if (resultSet.next() == true) {
                 throw new RuntimeException("Hay otra fila igual");
             }
-        } else {           
+        } else {
             entidadBancaria = null;
         }
 
@@ -48,6 +47,9 @@ public class EntidadBancariaDAO {
     }
 
     public void insert(EntidadBancaria entidadBancaria) throws SQLException {
+
+        Connection connection = connectionFactory.getConnection();
+
         String insertTableSQL = "INSERT INTO entidadbancaria (idEntidad, codigoEntidad, nombre, cif,tipoEntidadBancaria) VALUES (?,?,?,?,?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(insertTableSQL);
@@ -64,6 +66,8 @@ public class EntidadBancariaDAO {
 
     public void update(EntidadBancaria entidadBancaria) throws SQLException {
 
+        Connection connection = connectionFactory.getConnection();
+
         String updateSQL = "UPDATE entidadbancaria SET codigoEntidad=?,nombre=?,cif=?,tipoEntidadBancaria=? WHERE idEntidad=?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(updateSQL);
@@ -78,30 +82,33 @@ public class EntidadBancariaDAO {
     }
 
     public void delete(int idEntidadBancaria) throws SQLException {
-        
+
+        Connection connection = connectionFactory.getConnection();
+
         String deleteSQL = "DELETE FROM entidadbancaria WHERE idEntidad=?";
-        
+
         PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL);
-        
+
         preparedStatement.setInt(1, idEntidadBancaria);
-        
+
         preparedStatement.executeUpdate();
         connection.close();
-        
+
     }
 
     public List<EntidadBancaria> findAll() throws SQLException {
-        
-        
+
+        Connection connection = connectionFactory.getConnection();
+
         List<EntidadBancaria> entidadesBancarias = new ArrayList<>();
         String selectAllSQL = "SELECT * FROM entidadbancaria";
-        
+
         PreparedStatement preparedStatement = connection.prepareStatement(selectAllSQL);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next() == true) {
-            
+
             EntidadBancaria entidadBancaria = new EntidadBancaria();
-            
+
             entidadBancaria.setIdEntidadBancaria(resultSet.getInt("idEntidad"));
             entidadBancaria.setCodigoEntidad(resultSet.getString("codigoEntidad"));
             entidadBancaria.setNombre(resultSet.getString("nombre"));
@@ -110,27 +117,29 @@ public class EntidadBancariaDAO {
 
             entidadesBancarias.add(entidadBancaria);
         }
-        
+
         connection.close();
         return entidadesBancarias;
 
     }
 
     public List<EntidadBancaria> findByCodigo(String codigo) throws SQLException {
-                
+
+        Connection connection = connectionFactory.getConnection();
+
         List<EntidadBancaria> entidadesBancarias = new ArrayList<>();
         String selectAllSQL = "SELECT * FROM entidadbancaria WHERE codigoEntidad=?";
-        
-        
+
+
         PreparedStatement preparedStatement = connection.prepareStatement(selectAllSQL);
-        
-        preparedStatement.setString(1,codigo);
-        
+
+        preparedStatement.setString(1, codigo);
+
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next() == true) {
-            
+
             EntidadBancaria entidadBancaria = new EntidadBancaria();
-            
+
             entidadBancaria.setIdEntidadBancaria(resultSet.getInt("idEntidad"));
             entidadBancaria.setCodigoEntidad(resultSet.getString("codigoEntidad"));
             entidadBancaria.setNombre(resultSet.getString("nombre"));
@@ -139,7 +148,7 @@ public class EntidadBancariaDAO {
 
             entidadesBancarias.add(entidadBancaria);
         }
-        
+
         connection.close();
         return entidadesBancarias;
     }
