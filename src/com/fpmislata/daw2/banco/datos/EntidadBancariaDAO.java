@@ -13,8 +13,8 @@ import java.util.List;
 public class EntidadBancariaDAO implements EntidadBancariaDAO2{
 
     ConnectionFactory connectionFactory = new ConnectionFactoryImpJDBC();
-
-    public EntidadBancaria read(int idEntidadBancaria) throws SQLException {
+    @Override
+    public EntidadBancaria read(Integer idEntidadBancaria) throws SQLException {
 
         Connection connection = connectionFactory.getConnection();
 
