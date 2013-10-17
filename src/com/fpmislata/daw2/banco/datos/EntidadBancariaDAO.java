@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntidadBancariaDAO {
+public class EntidadBancariaDAO implements EntidadBancariaDAO2{
 
     ConnectionFactory connectionFactory = new ConnectionFactoryImpJDBC();
 
