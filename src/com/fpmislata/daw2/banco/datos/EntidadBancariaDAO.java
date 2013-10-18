@@ -13,6 +13,7 @@ import java.util.List;
 public class EntidadBancariaDAO implements EntidadBancariaDAO2{
 
     ConnectionFactory connectionFactory = new ConnectionFactoryImpJDBC();
+    
     @Override
     public EntidadBancaria read(Integer idEntidadBancaria) throws SQLException {
 
@@ -45,7 +46,8 @@ public class EntidadBancariaDAO implements EntidadBancariaDAO2{
         return entidadBancaria;
 
     }
-
+    
+    @Override
     public void insert(EntidadBancaria entidadBancaria) throws SQLException {
 
         Connection connection = connectionFactory.getConnection();
@@ -63,7 +65,7 @@ public class EntidadBancariaDAO implements EntidadBancariaDAO2{
         preparedStatement.executeUpdate();
         connection.close();
     }
-
+    @Override
     public void update(EntidadBancaria entidadBancaria) throws SQLException {
 
         Connection connection = connectionFactory.getConnection();
@@ -80,8 +82,9 @@ public class EntidadBancariaDAO implements EntidadBancariaDAO2{
         preparedStatement.executeUpdate();
         connection.close();
     }
-
-    public void delete(int idEntidadBancaria) throws SQLException {
+    
+    @Override
+    public void delete(Integer idEntidadBancaria) throws SQLException {
 
         Connection connection = connectionFactory.getConnection();
 
@@ -95,7 +98,8 @@ public class EntidadBancariaDAO implements EntidadBancariaDAO2{
         connection.close();
 
     }
-
+    
+    @Override
     public List<EntidadBancaria> findAll() throws SQLException {
 
         Connection connection = connectionFactory.getConnection();
@@ -122,8 +126,11 @@ public class EntidadBancariaDAO implements EntidadBancariaDAO2{
         return entidadesBancarias;
 
     }
-
-    public List<EntidadBancaria> findByCodigo(String codigo) throws SQLException {
+    
+    @Override
+    public List<EntidadBancaria> findByCodigo(Integer codigo) throws SQLException {
+        
+        String codigoEntidad = Integer.toString(codigo);
 
         Connection connection = connectionFactory.getConnection();
 
@@ -133,8 +140,7 @@ public class EntidadBancariaDAO implements EntidadBancariaDAO2{
 
         PreparedStatement preparedStatement = connection.prepareStatement(selectAllSQL);
 
-        preparedStatement.setString(1, codigo);
-
+        preparedStatement.setString(1, codigoEntidad);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next() == true) {
 
