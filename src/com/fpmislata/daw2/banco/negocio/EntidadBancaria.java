@@ -1,9 +1,10 @@
 package com.fpmislata.daw2.banco.negocio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntidadBancaria {
+public class EntidadBancaria implements Serializable{
 
     private int idEntidadBancaria;
     private String codigoEntidad;

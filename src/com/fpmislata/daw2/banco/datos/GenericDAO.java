@@ -11,6 +11,6 @@ public interface GenericDAO<T,ID> {
     void update(T t) throws SQLException;
     void delete(ID id) throws SQLException;   
     List<T> findAll() throws SQLException;
-    List<T> findByCodigo(ID id) throws SQLException;
+    /*List<T> findByCodigo(ID id) throws SQLException;*/
     
 }

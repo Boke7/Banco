@@ -127,10 +127,10 @@ public class EntidadBancariaDAO implements EntidadBancariaDAO2{
 
     }
     
-    @Override
-    public List<EntidadBancaria> findByCodigo(Integer codigo) throws SQLException {
+    /*@Override*/
+    public List<EntidadBancaria> findByCodigo(String codigo) throws SQLException {
         
-        String codigoEntidad = Integer.toString(codigo);
+        /*String codigoEntidad = Integer.toString(codigo);*/
 
         Connection connection = connectionFactory.getConnection();
 
@@ -140,7 +140,7 @@ public class EntidadBancariaDAO implements EntidadBancariaDAO2{
 
         PreparedStatement preparedStatement = connection.prepareStatement(selectAllSQL);
 
-        preparedStatement.setString(1, codigoEntidad);
+        preparedStatement.setString(1, codigo);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next() == true) {
 
