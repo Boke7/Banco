@@ -6,6 +6,5 @@
         <property name="codigoEntidad"/>
         <property name="nombre" />
         <property name="cif" />
-        <property name="tipoEntidadBancaria" />
     </class>
 </hibernate-mapping>

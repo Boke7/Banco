@@ -49,7 +49,7 @@ Session session = sessionFactory.openSession();
          Date fecha4 = (new GregorianCalendar(2012, 5, 17)).getTime();
 
 
-         */EntidadBancaria entidad1 = new EntidadBancaria(2, "004", "Banco Daniel", "53758419J", TipoEntidadBancaria.BANCO);
+         */EntidadBancaria entidad1 = new EntidadBancaria(2, "004", "Banco Daniel", "53758419J");
         /*EntidadBancaria entidad2 = new EntidadBancaria(2, "012", "Caja Rural Torrent", "53535353J", TipoEntidadBancaria.CAJA_AHORRO);
 
          SucursalBancaria sucursal1 = new SucursalBancaria(1, entidad1, "125", "Sucursal de Valencia");

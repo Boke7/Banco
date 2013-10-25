@@ -13,12 +13,12 @@ public class EntidadBancaria implements Serializable{
     private TipoEntidadBancaria tipoEntidadBancaria;
     List<SucursalBancaria> sucursales = new ArrayList<>();
 
-    public EntidadBancaria(int idEntidad, String codigoEntidad, String nombre, String cif, TipoEntidadBancaria tipoEntidadBancaria) {
+    public EntidadBancaria(int idEntidad, String codigoEntidad, String nombre, String cif/*, TipoEntidadBancaria tipoEntidadBancaria*/) {
         this.idEntidadBancaria = idEntidad;
         this.codigoEntidad = codigoEntidad;
         this.nombre = nombre;
         this.cif = cif;
-        this.tipoEntidadBancaria = tipoEntidadBancaria;
+        /*this.tipoEntidadBancaria = tipoEntidadBancaria;*/
     }
     
     public EntidadBancaria(){
